@@ -4,6 +4,7 @@
     <!-- Page JS Plugins CSS -->
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables/dataTables.bootstrap4.css') }}">
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 @endsection
 
 @section('js_after')
@@ -42,7 +43,10 @@
         <!-- Dynamic Table Full -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Dynamic Table <small>Full</small></h3>
+                <h3 class="block-title">Dynamic Table <small>Persons</small></h3>
+                <a href="{{route('person.create')}}" class="btn btn-primary m-2">
+                    <i class="bi bi-person-plus-fill"></i> Add Person
+                </a>
             </div>
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->
