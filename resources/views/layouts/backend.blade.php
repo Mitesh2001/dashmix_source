@@ -351,16 +351,16 @@
                     <div>
                         <!-- Toggle Sidebar -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout()-->
-                        <button type="button" class="btn btn-dual" data-toggle="layout" data-action="sidebar_toggle">
+                        <!-- <button type="button" class="btn btn-dual" data-toggle="layout" data-action="sidebar_toggle">
                             <i class="fa fa-fw fa-bars"></i>
-                        </button>
+                        </button> -->
                         <!-- END Toggle Sidebar -->
 
                         <!-- Open Search Section -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        <button type="button" class="btn btn-dual" data-toggle="layout" data-action="header_search_on">
+                        <!-- <button type="button" class="btn btn-dual" data-toggle="layout" data-action="header_search_on">
                             <i class="fa fa-fw fa-search"></i> <span class="ml-1 d-none d-sm-inline-block">Search</span>
-                        </button>
+                        </button> -->
                         <!-- END Open Search Section -->
                     </div>
                     <!-- END Left Section -->
@@ -495,13 +495,13 @@
                 <!-- END Header Content -->
 
                 <!-- Header Search -->
-                <div id="page-header-search" class="overlay-header bg-primary">
+                <!-- <div id="page-header-search" class="overlay-header bg-primary">
                     <div class="content-header">
                         <form class="w-100" action="/dashboard" method="POST">
                             @csrf
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                                    Layout API, functionality initialized in Template._uiApiLayout()
                                     <button type="button" class="btn btn-primary" data-toggle="layout" data-action="header_search_off">
                                         <i class="fa fa-fw fa-times-circle"></i>
                                     </button>
@@ -510,7 +510,7 @@
                             </div>
                         </form>
                    </div>
-                </div>
+                </div> -->
                 <!-- END Header Search -->
 
                 <!-- Header Loader -->
