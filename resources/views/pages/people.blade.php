@@ -4,7 +4,6 @@
     <!-- Page JS Plugins CSS -->
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables/dataTables.bootstrap4.css') }}">
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 @endsection
 
 @section('js_after')
@@ -22,22 +21,6 @@
 @endsection
 
 @section('content')
-    <!-- Hero -->
-    <div class="bg-body-light">
-        <div class="content content-full">
-            <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                <h1 class="flex-sm-fill font-size-h2 font-w400 mt-2 mb-0 mb-sm-2">DataTables Example</h1>
-                <nav class="flex-sm-00-auto ml-sm-3" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Examples</li>
-                        <li class="breadcrumb-item active" aria-current="page">Plugin</li>
-                    </ol>
-                </nav>
-            </div>
-       </div>
-    </div>
-    <!-- END Hero -->
-
     <!-- Page Content -->
     <div class="content">
         <!-- Dynamic Table Full -->
@@ -49,7 +32,7 @@
                 </a>
             </div>
             <div class="block-content block-content-full">
-                <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-buttons">
+                <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr class="text-center">
                             <th scope="col">Role Id</th>
@@ -94,43 +77,6 @@
                 </table>
             </div>
         </div>
-
-        <!-- Dynamic Table with Export Buttons -->
-        <div class="block block-rounded">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">Dynamic Table <small>Export Buttons</small></h3>
-            </div>
-            <div class="block-content block-content-full">
-                <!-- DataTables init on table by adding .js-dataTable-buttons class, functionality is initialized in js/pages/tables_datatables.js -->
-                <table class="table table-bordered table-striped table-vcenter js-dataTable-buttons">
-                    <thead>
-                        <tr>
-                            <th class="text-center" style="width: 80px;">#</th>
-                            <th>Name</th>
-                            <th class="d-none d-sm-table-cell" style="width: 30%;">Email</th>
-                            <th style="width: 15%;">Registered</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for ($i = 1; $i < 21; $i++)
-                        <tr>
-                            <td class="text-center">{{ $i }}</td>
-                            <td class="font-w600">
-                                <a href="javascript:void(0)">John Smith</a>
-                            </td>
-                            <td class="d-none d-sm-table-cell">
-                                client{{ $i }}<em class="text-muted">@example.com</em>
-                            </td>
-                            <td>
-                                <em class="text-muted">{{ rand(2, 10) }} days ago</em>
-                            </td>
-                        </tr>
-                        @endfor
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <!-- END Dynamic Table with Export Buttons -->
     </div>
     <!-- END Page Content -->
 @endsection
