@@ -15,7 +15,7 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->integer('roll_id')->unique();
+            $table->integer('role_id')->unique();
             $table->string('email');
             $table->string('password');
             $table->bigInteger('mobile_number');

@@ -43,12 +43,12 @@
                             <label class="form-label">Gender</label><br>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender"/>Male
+                                    <input class="form-check-input" type="radio" name="gender" value="Male"/>Male
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender"/>Female
+                                    <input class="form-check-input" type="radio" name="gender" value="Female"/>Female
                                 </label>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="form-group col-md-5 mr-2">
                             <label class="form-label">Role Id</label>
-                            <input name="number" type="role_id" class="form-control" placeholder="Roll Id">
+                            <input name="role_id" type="role_id" class="form-control" placeholder="Roll Id">
                         </div>
                     </div>
                     <div class="form-row">
@@ -68,7 +68,11 @@
                             <label class="form-label">Address</label>
                             <textarea class="form-control" rows="1" name="address" placeholder="Address..."></textarea>
                         </div>
-                        <div class="form-group col-md-5 mr-2">
+                        <div class="form-group col-md-3">
+                            <label class="form-label">City</label>
+                            <input type="text" name="city" class="form-control" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-3">
                             <label class="form-label">Pincode</label>
                             <input type="number" name="pincode" class="form-control" placeholder="xxxxxx">
                         </div>
@@ -76,7 +80,7 @@
                     <div class="form-row col-md-11">
                         <label class="form-label">Picture</label>
                         <div class="custom-file">
-                            <input type="file" name="picture" class="custom-file-input" id="pictureInput">
+                            <input type="file" name="file" class="custom-file-input" id="pictureInput">
                             <label class="custom-file-label" for="pictureInput">Choose file</label>
                         </div>
                     </div>

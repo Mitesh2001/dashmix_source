@@ -35,7 +35,22 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->file()) {
+            $request->file('file')->storeAs('pictures', $request->file->getClientOriginalName(), 'public');
+        }
+
+        Person::create([
+            'role_id' => $request->role_id,
+            'email' => $request->email,
+            'password' => $request->password,
+            'mobile_number' => $request->mobile_number,
+            'gender' => $request->gender,
+            'birth_date' => $request->birth_date,
+            'address' => $request->address,
+            'city' => $request->city,
+            'pincode' => $request->pincode,
+            'picture' => $request->file->getClientOriginalName(),
+        ]);
     }
 
     /**
