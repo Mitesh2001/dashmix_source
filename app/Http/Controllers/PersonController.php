@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PersonController extends Controller
 {
@@ -85,6 +86,7 @@ class PersonController extends Controller
     public function update(Request $request, Person $person)
     {
         if ($request->file()) {
+            Storage::delete('public/pictures/'.$person->picture);
             $request->file('file')->storeAs('pictures', $request->file->getClientOriginalName(), 'public');
         }
         $person->update([
@@ -111,6 +113,7 @@ class PersonController extends Controller
     public function destroy(Person $person)
     {
         $person->delete();
+        Storage::delete('public/pictures/'.$person->picture);
         return redirect()->route('pages.datatables');
     }
 }

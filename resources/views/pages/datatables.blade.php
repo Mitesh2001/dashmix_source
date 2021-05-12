@@ -44,12 +44,11 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">Dynamic Table <small>Persons</small></h3>
-                <a href="{{route('person.create')}}" class="btn btn-primary m-2">
+                <a href="{{route('person.create')}}" class="btn btn-outline-primary m-2">
                     <i class="bi bi-person-plus-fill"></i> Add Person
                 </a>
             </div>
             <div class="block-content block-content-full">
-                <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->
                 <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr>
@@ -93,7 +92,6 @@
                 </table>
             </div>
         </div>
-        <!-- END Dynamic Table Full -->
 
         <!-- Dynamic Table with Export Buttons -->
         <div class="block block-rounded">
