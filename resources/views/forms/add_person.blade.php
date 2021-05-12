@@ -16,7 +16,8 @@
                 </a>
             </div>
             <div class="block-content block-content-full">
-                <form action="">
+                <form action="{{route('person.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-row">
                         <div class="form-group col-md-11">
                             <label class="form-label">Email address</label>
