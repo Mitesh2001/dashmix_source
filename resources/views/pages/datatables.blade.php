@@ -50,30 +50,39 @@
             </div>
             <div class="block-content block-content-full">
                 <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->
-                <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr>
-                            <th class="text-center" style="width: 80px;">#</th>
-                            <th>Name</th>
-                            <th class="d-none d-sm-table-cell" style="width: 30%;">Email</th>
-                            <th style="width: 15%;">Registered</th>
+                            <th scope="col">Role Id</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">BirthDate</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Picture</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 1; $i < 21; $i++)
+                        @foreach ($people as $person)
                         <tr>
-                            <td class="text-center"><?php echo $i; ?></td>
-                            <td class="font-w600">
-                                <a href="javascript:void(0)">John Doe</a>
-                            </td>
-                            <td class="d-none d-sm-table-cell">
-                                client{{ $i }}<em class="text-muted">@example.com</em>
-                            </td>
+                            <td>{{$person->role_id}}</td>
+                            <td>{{$person->email}}</td>
+                            <td>{{$person->mobile_number}}</td>
+                            <td>{{$person->gender}}</td>
+                            <td>{{$person->birth_date}}</td>
+                            <td>{{$person->address}}</td>
+                            <td>{{$person->city}}</td>
+                            <td>{{$person->picture}}</td>
                             <td>
-                                <em class="text-muted">{{ rand(2, 10) }} days ago</em>
+                                <a href="{{route('person.edit',$person)}}">
+                                    <i class="bi bi-pencil btn btn-primary"></i>
+                                </a>
+                                <i class="bi bi-archive-fill btn btn-danger"></i>
                             </td>
                         </tr>
-                        @endfor
+                        @endforeach
                     </tbody>
                 </table>
             </div>
