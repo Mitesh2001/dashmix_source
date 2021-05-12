@@ -4,6 +4,7 @@
     <!-- Page JS Plugins CSS -->
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables/dataTables.bootstrap4.css') }}">
     <link rel="stylesheet" href="{{ asset('js/plugins/datatables/buttons-bs4/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 @endsection
 
 @section('js_after')
@@ -39,55 +40,58 @@
 
     <!-- Page Content -->
     <div class="content">
-        <!-- Info -->
-        <div class="block block-rounded">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">Plugin Example</h3>
-            </div>
-            <div class="block-content">
-                <p>
-                    This page showcases how easily you can add a plugin’s JS/CSS assets and init it using custom JS code.
-                </p>
-            </div>
-        </div>
-        <!-- END Info -->
-
         <!-- Dynamic Table Full -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Dynamic Table <small>Full</small></h3>
+                <h3 class="block-title">Dynamic Table <small>Persons</small></h3>
+                <a href="{{route('person.create')}}" class="btn btn-outline-primary m-2">
+                    <i class="bi bi-person-plus-fill"></i> Add Person
+                </a>
             </div>
             <div class="block-content block-content-full">
-                <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->
-                <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-buttons">
                     <thead>
                         <tr>
-                            <th class="text-center" style="width: 80px;">#</th>
-                            <th>Name</th>
-                            <th class="d-none d-sm-table-cell" style="width: 30%;">Email</th>
-                            <th style="width: 15%;">Registered</th>
+                            <th scope="col">Role Id</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">BirthDate</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Picture</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 1; $i < 21; $i++)
+                        @foreach ($people as $person)
                         <tr>
-                            <td class="text-center"><?php echo $i; ?></td>
-                            <td class="font-w600">
-                                <a href="javascript:void(0)">John Doe</a>
-                            </td>
-                            <td class="d-none d-sm-table-cell">
-                                client{{ $i }}<em class="text-muted">@example.com</em>
-                            </td>
+                            <td>{{$person->role_id}}</td>
+                            <td>{{$person->email}}</td>
+                            <td>{{$person->mobile_number}}</td>
+                            <td>{{$person->gender}}</td>
+                            <td>{{$person->birth_date}}</td>
+                            <td>{{$person->address}}</td>
+                            <td>{{$person->city}}</td>
+                            <td>{{$person->picture}}</td>
                             <td>
-                                <em class="text-muted">{{ rand(2, 10) }} days ago</em>
+                                <a href="{{route('person.edit',$person)}}">
+                                    <i class="bi bi-pencil btn btn-primary"></i>
+                                </a>
+                                <form action="{{route('person.destroy',$person)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="bi bi-archive-fill"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
-                        @endfor
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        <!-- END Dynamic Table Full -->
 
         <!-- Dynamic Table with Export Buttons -->
         <div class="block block-rounded">

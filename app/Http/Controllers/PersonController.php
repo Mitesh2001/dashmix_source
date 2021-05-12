@@ -9,15 +9,10 @@ use Illuminate\Support\Facades\Storage;
 class PersonController extends Controller
 {
     public $rules = [
-        'role_id' => 'required|numeric|unique:App\Models\Person,role_id',
-        'email' => 'required|email',
-        'password' => 'required|min:4',
+        'role_id' => 'required|numeric',
+        'email' => 'required|email|unique:App\Models\Person,email',
+        'password' => 'required|min:4|confirmed',
         'mobile_number' => 'required|numeric|digits:10',
-        'gender' => 'required',
-        'birth_date' => 'required',
-        'address' => 'required',
-        'city' => 'required',
-        'pincode' => 'required|min:6|max:6',
         'file' => 'required',
     ];
     /**
@@ -27,7 +22,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-        return redirect()->route('pages.datatables');
+        return view('pages.people', ['people' => Person::all()]);
     }
 
     /**
@@ -65,7 +60,7 @@ class PersonController extends Controller
             'pincode' => $request->pincode,
             'picture' => $request->file->getClientOriginalName(),
         ]);
-        return redirect()->route('pages.datatables');
+        return redirect()->route('person.index');
     }
 
     /**
@@ -100,6 +95,8 @@ class PersonController extends Controller
     public function update(Request $request, Person $person)
     {
         $this->rules['role_id'] = 'required';
+        $this->rules['email'] = '';
+        $this->rules['password'] = '';
         if ($request->file()) {
             $request->validate($this->rules);
             Storage::delete('public/pictures/'.$person->picture);
@@ -131,7 +128,7 @@ class PersonController extends Controller
                 'pincode' => $request->pincode,
             ]);
         }
-        return redirect()->route('pages.datatables');
+        return redirect()->route('person.index');
     }
 
     /**
@@ -144,6 +141,6 @@ class PersonController extends Controller
     {
         $person->delete();
         Storage::delete('public/pictures/'.$person->picture);
-        return redirect()->route('pages.datatables');
+        return redirect()->route('person.index');
     }
 }

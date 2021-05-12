@@ -328,6 +328,13 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('person'.'*') ? ' active' : '' }}" href="{{route('person.index')}}">
+                                    <i class="nav-main-link-icon bi bi-people-fill"></i>
+                                    <span class="nav-main-link-name">Users</span>
+                                </a>
+                            </li>
+
                             <li class="nav-main-heading">More</li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="/">

@@ -11,7 +11,7 @@
         <div class="block block-rounded">
             <div class="block-header block-header-default">
                 <h3 class="block-title">Create <small>Person</small></h3>
-                <a href="{{route('pages.datatables')}}" class="btn btn-primary m-2">
+                <a href="{{route('person.index')}}" class="btn btn-primary m-2">
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
@@ -56,16 +56,11 @@
                         </div>
                         <div class="form-group col-md-5 mr-2">
                             <label class="form-label">Gender</label><br>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender" value="Male"/>Male
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="gender" value="Female"/>Female
-                                </label>
-                            </div>
+                            <select class="browser-default custom-select" name="gender">
+                                <option value="" selected>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                             <small class="text-danger">
                                 @error('gender')
                                     <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
@@ -135,7 +130,7 @@
                         </small>
                     </div>
                     <button type="submit" class="btn btn-primary my-5 mx-3">Create User</button>
-                    <a href="{{route('pages.datatables')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <a href="{{route('person.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
                 </form>
             </div>
         </div>
