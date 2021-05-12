@@ -79,7 +79,13 @@
                                 <a href="{{route('person.edit',$person)}}">
                                     <i class="bi bi-pencil btn btn-primary"></i>
                                 </a>
-                                <i class="bi bi-archive-fill btn btn-danger"></i>
+                                <form action="{{route('person.destroy',$person)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="bi bi-archive-fill"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
