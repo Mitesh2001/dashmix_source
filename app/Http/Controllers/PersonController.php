@@ -13,7 +13,7 @@ class PersonController extends Controller
         'email' => 'required|email|unique:App\Models\Person,email',
         'password' => 'required|min:4|confirmed',
         'mobile_number' => 'required|numeric|digits:10',
-        'file' => 'required',
+        'file' => 'required|mimes:jpeg,jpg,png',
     ];
     /**
      * Display a listing of the resource.

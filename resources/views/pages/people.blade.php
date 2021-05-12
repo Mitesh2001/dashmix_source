@@ -51,7 +51,7 @@
             <div class="block-content block-content-full">
                 <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-buttons">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th scope="col">Role Id</th>
                             <th scope="col">Email</th>
                             <th scope="col">Mobile</th>
@@ -65,7 +65,7 @@
                     </thead>
                     <tbody>
                         @foreach ($people as $person)
-                        <tr>
+                        <tr class="text-center">
                             <td>{{$person->role_id}}</td>
                             <td>{{$person->email}}</td>
                             <td>{{$person->mobile_number}}</td>
@@ -73,7 +73,9 @@
                             <td>{{$person->birth_date}}</td>
                             <td>{{$person->address}}</td>
                             <td>{{$person->city}}</td>
-                            <td>{{$person->picture}}</td>
+                            <td>
+                                <img class="border rounded" src="{{ asset('/images/'.$person->picture) }}" height="60">
+                            </td>
                             <td>
                                 <a href="{{route('person.edit',$person)}}">
                                     <i class="bi bi-pencil btn btn-primary"></i>
