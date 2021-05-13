@@ -117,17 +117,19 @@
                             </small>
                         </div>
                     </div>
-                    <div class="form-row col-md-12">
-                        <label class="form-label">Picture</label>
-                        <div class="custom-file">
-                            <input type="file" name="file" class="custom-file-input" id="pictureInput">
-                            <label class="custom-file-label" for="pictureInput">Choose file</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label class="form-label">Picture</label>
+                            <div class="custom-file">
+                                <input type="file" name="file" class="custom-file-input" id="pictureInput">
+                                <label class="custom-file-label" for="pictureInput">Choose file</label>
+                            </div>
+                            <small class="text-danger">
+                                @error('file')
+                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
+                                @enderror
+                            </small>
                         </div>
-                        <small class="text-danger">
-                            @error('file')
-                                <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                            @enderror
-                        </small>
                     </div>
                     <button type="submit" class="btn btn-primary my-5 mx-3">Create User</button>
                     <a href="{{route('person.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>

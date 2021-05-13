@@ -307,10 +307,10 @@
                             </li>
                             <li class="nav-main-heading">Various</li>
                             <li class="nav-main-item{{ request()->is('pages/*') ? ' open' : '' }}">
-                                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
+                                <!-- <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="true" href="#">
                                     <i class="nav-main-link-icon fa fa-lightbulb"></i>
                                     <span class="nav-main-link-name">Examples</span>
-                                </a>
+                                </a> -->
                                 <ul class="nav-main-submenu">
                                     <li class="nav-main-item">
                                         <a class="nav-main-link{{ request()->is('pages/datatables') ? ' active' : '' }}" href="/pages/datatables">
@@ -335,7 +335,18 @@
                                     <span class="nav-main-link-name">Users</span>
                                 </a>
                             </li>
-
+                            <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('business'.'*') ? ' active' : '' }}" href="{{route('business.index')}}">
+                                    <i class="nav-main-link-icon bi bi-briefcase-fill"></i>
+                                    <span class="nav-main-link-name">Businesses</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('employee'.'*') ? ' active' : '' }}" href="{{route('employee.index')}}">
+                                    <i class="nav-main-link-icon bi-person-badge-fill"></i>
+                                    <span class="nav-main-link-name">Employees</span>
+                                </a>
+                            </li>
                             <li class="nav-main-heading">More</li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="/">
