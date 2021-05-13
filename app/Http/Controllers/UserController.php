@@ -99,7 +99,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $this->rules['role_id'] = 'required';
         $this->rules['email'] = '';
         $this->rules['password'] = '';
         $request->validate($this->rules);
@@ -107,12 +106,13 @@ class UserController extends Controller
         $profileName = $user->picture;
         $password = $user->password;
 
-        $request->password ? $password = $request->password : '';
+        $request->password ? $user->update(['password' => $request->password]) : '';
 
         if ($request->file()) {
             Storage::delete('public/user_profiles/'.$user->picture);
             $profileName = time().$request->file->getClientOriginalName();
             $request->file('file')->storeAs('user_profiles', $profileName, 'public');
+            $user->update(['picture' => $profileName]);
         }
 
         $user->update([
@@ -121,14 +121,12 @@ class UserController extends Controller
             'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            'password' => $password,
             'mobile_number' => $request->mobile_number,
             'gender' => $request->gender,
             'birth_date' => $request->birth_date,
             'address' => $request->address,
             'city' => $request->city,
             'pincode' => $request->pincode,
-            'picture' => $profileName
         ]);
         return redirect()->route('user.index');
     }

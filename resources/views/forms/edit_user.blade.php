@@ -52,7 +52,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-5 mr-3">
                             <label class="form-label">Password</label>
-                            <input name="password" type="password" class="form-control" placeholder="Password" value="{{$user->password}}">
+                            <input name="password" type="password" class="form-control" placeholder="New Password">
                             <small class="text-danger">
                                 @error('password')
                                     <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
