@@ -347,6 +347,18 @@
                                     <span class="nav-main-link-name">Employees</span>
                                 </a>
                             </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('candidate'.'*') ? ' active' : '' }}" href="{{route('candidate.index')}}">
+                                    <i class="nav-main-link-icon bi bi-person-fill"></i>
+                                    <span class="nav-main-link-name">Candidates</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('news'.'*') ? ' active' : '' }}" href="{{route('news.index')}}">
+                                    <i class="nav-main-link-icon bi bi-newspaper"></i>
+                                    <span class="nav-main-link-name">News</span>
+                                </a>
+                            </li>
                             <li class="nav-main-heading">More</li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="/">
