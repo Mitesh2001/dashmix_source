@@ -10,14 +10,33 @@
     <div class="content">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Create <small>Person</small></h3>
-                <a href="{{route('person.index')}}" class="btn btn-primary m-2">
+                <h3 class="block-title">Create <small>User</small></h3>
+                <a href="{{route('user.index')}}" class="btn btn-primary m-2">
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
             <div class="block-content block-content-full">
-                <form action="{{route('person.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label class="form-label">First Name</label>
+                            <input name="first_name" type="text" class="form-control" placeholder="First Name">
+                            <small class="text-danger">
+                                @error('first_name')
+                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
+                                @enderror
+                            </small>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="form-label">Middle Name</label>
+                            <input name="middle_name" type="text" class="form-control" placeholder="Middle Name">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="form-label">Last Name</label>
+                            <input name="last_name" type="text" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label class="form-label">Email address</label>
@@ -61,26 +80,16 @@
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
-                            <small class="text-danger">
-                                @error('gender')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-5 mr-2">
                             <label class="form-label">Birth Date</label>
                             <input name="birth_date" type="date" class="form-control" max="{{date('Y-m-d')}}">
-                            <small class="text-danger">
-                                @error('birth_date')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                         <div class="form-group col-md-5 mr-2">
                             <label class="form-label">Role Id</label>
-                            <input name="role_id" type="role_id" class="form-control" placeholder="Roll Id">
+                            <input name="role_id" type="text" class="form-control" placeholder="Role Id">
                             <small class="text-danger">
                                 @error('role_id')
                                     <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
@@ -92,29 +101,14 @@
                         <div class="form-group col-md-6">
                             <label class="form-label">Address</label>
                             <textarea class="form-control" rows="1" name="address" placeholder="Address..."></textarea>
-                            <small class="text-danger">
-                                @error('address')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                         <div class="form-group col-md-3">
                             <label class="form-label">City</label>
                             <input type="text" name="city" class="form-control" placeholder="City">
-                            <small class="text-danger">
-                                @error('city')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                         <div class="form-group col-md-3">
                             <label class="form-label">Pincode</label>
                             <input type="number" name="pincode" class="form-control" placeholder="xxxxxx">
-                            <small class="text-danger">
-                                @error('pincode')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                     </div>
                     <div class="form-row">
@@ -124,15 +118,10 @@
                                 <input type="file" name="file" class="custom-file-input" id="pictureInput">
                                 <label class="custom-file-label" for="pictureInput">Choose file</label>
                             </div>
-                            <small class="text-danger">
-                                @error('file')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary my-5 mx-3">Create User</button>
-                    <a href="{{route('person.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <a href="{{route('user.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
                 </form>
             </div>
         </div>

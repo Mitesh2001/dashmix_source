@@ -330,7 +330,7 @@
                                 </ul>
                             </li>
                             <li class="nav-main-item">
-                                <a class="nav-main-link{{ request()->is('person'.'*') ? ' active' : '' }}" href="{{route('person.index')}}">
+                                <a class="nav-main-link{{ request()->is('user'.'*') ? ' active' : '' }}" href="{{route('user.index')}}">
                                     <i class="nav-main-link-icon bi bi-people-fill"></i>
                                     <span class="nav-main-link-name">Users</span>
                                 </a>

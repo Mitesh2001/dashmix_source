@@ -26,9 +26,9 @@
         <!-- Dynamic Table Full -->
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Dynamic Table <small>Persons</small></h3>
-                <a href="{{route('person.create')}}" class="btn btn-outline-primary m-2">
-                    <i class="bi bi-person-plus-fill"></i> Add Person
+                <h3 class="block-title">Dynamic Table <small>Users</small></h3>
+                <a href="{{route('user.create')}}" class="btn btn-outline-primary m-2">
+                    <i class="bi bi-person-plus-fill"></i> Create User
                 </a>
             </div>
             <div class="block-content block-content-full">
@@ -36,6 +36,7 @@
                     <thead>
                         <tr class="text-center">
                             <th scope="col">Role Id</th>
+                            <th scope="col">Full Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Mobile</th>
                             <th scope="col">Gender</th>
@@ -47,23 +48,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($people as $person)
+                        @foreach ($users as $user)
                         <tr class="text-center">
-                            <td>{{$person->role_id}}</td>
-                            <td>{{$person->email}}</td>
-                            <td>{{$person->mobile_number}}</td>
-                            <td>{{$person->gender}}</td>
-                            <td>{{$person->birth_date}}</td>
-                            <td>{{$person->address}}</td>
-                            <td>{{$person->city}}</td>
+                            <td>{{$user->role_id}}</td>
+                            <td>{{$user->first_name.$user->middle_name.$user->last_name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->mobile_number}}</td>
+                            <td>{{$user->gender}}</td>
+                            <td>{{$user->birth_date}}</td>
+                            <td>{{$user->address}}</td>
+                            <td>{{$user->city}}</td>
                             <td>
-                                <img class="border rounded" src="{{ asset('/images/'.$person->picture) }}" height="60">
+                                <img class="border rounded" src="{{ asset('/images/'.$user->picture) }}" height="60">
                             </td>
                             <td>
-                                <a href="{{route('person.edit',$person)}}">
+                                <a href="{{route('user.edit',$user)}}">
                                     <i class="bi bi-pencil btn btn-primary"></i>
                                 </a>
-                                <form action="{{route('person.destroy',$person)}}" method="post">
+                                <form action="{{route('user.destroy',$user)}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">

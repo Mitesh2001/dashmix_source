@@ -3,6 +3,7 @@
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\UserController;
 use App\Models\Person;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,6 @@ Route::match(['get', 'post'], '/dashboard', function () {
 Route::view('/pages/slick', 'pages.slick');
 Route::view('/pages/datatables', 'pages.datatables')->name('pages.datatables');
 Route::view('/pages/blank', 'pages.blank');
-Route::resource('person', PersonController::class);
+Route::resource('user', UserController::class);
 Route::resource('business', BusinessController::class);
 Route::resource('employee', EmployeeController::class);
