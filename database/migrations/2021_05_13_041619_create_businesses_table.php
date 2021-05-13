@@ -20,7 +20,7 @@ class CreateBusinessesTable extends Migration
             $table->string('middle_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('company');
-            $table->string('category');
+            $table->string('category')->nullable();
             $table->text('description')->nullable();
             $table->bigInteger('contact');
             $table->string('email')->nullable();

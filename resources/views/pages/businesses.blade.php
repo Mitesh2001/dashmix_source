@@ -28,7 +28,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title">Dynamic Table <small>Persons</small></h3>
                 <a href="{{route('business.create')}}" class="btn btn-outline-primary m-2">
-                    <i class="bi bi-person-plus-fill"></i> Add Business
+                    <i class="bi bi-person-plus-fill"></i> Create Business
                 </a>
             </div>
             <div class="block-content block-content-full">
@@ -53,7 +53,7 @@
                         @foreach ($businesses as $business)
                         <tr class="text-center">
                             <td>{{$business->user_id}}</td>
-                            <td>{{$business->first_name.$business->middle_name.$business->last_name}}</td>
+                            <td>{{$business->first_name.' '.$business->middle_name.' '.$business->last_name}}</td>
                             <td>{{$business->company}}</td>
                             <td>{{$business->category}}</td>
                             <td>{{$business->description}}</td>
@@ -61,10 +61,18 @@
                             <td>{{$business->email}}</td>
                             <td>{{$business->address}}</td>
                             <td>
-                                <img class="border rounded" src="" height="60">{{$business->logo}}
+                                @if($business->logo)
+                                    <img class="border rounded" src="{{asset('business_logo/'.$business->logo)}}" height="60">
+                                @else
+                                    <img class="border rounded" src="https://png.pngtree.com/element_pic/00/16/07/06577d261edb9ec.jpg" height="60">
+                                @endif
                             </td>
                             <td>
-                                <img class="border rounded" src="" height="60">
+                                @if($business->visitingcard)
+                                    <img class="border rounded" src="{{asset('visiting_card/'.$business->visitingcard)}}" height="60">
+                                @else
+                                    <img class="border rounded" src="https://www.eatlogos.com/business_cards/png/business_card_design_png.png" height="60">
+                                @endif
                             </td>
                             <td>{{$business->status}}</td>
                             <td>{{$business->done_by}}</td>

@@ -12,8 +12,7 @@ class BusinessController extends Controller
         'first_name' => 'required',
         'company' => 'required',
         'contact' => 'required|numeric',
-        'category' => 'required',
-        'logo' => 'required|image|mimes:jpg,png,jpeg',
+        'logo' => 'image|mimes:jpg,png,jpeg',
         'visitingcard' => 'image|mimes:jpg,png,jpeg'
     ];
     /**
@@ -45,12 +44,17 @@ class BusinessController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->rules);
-        $logo = $request->file('logo')->getClientOriginalName();
-        $request->file('logo')->storeAs('logos', $request->logo->getClientOriginalName(), 'public');
+
         $visitingcard = '';
+        $logo = '';
+
+        if ($request->file('logo')) {
+            $logo = time().$request->file('logo')->getClientOriginalName();
+            $request->file('logo')->storeAs('business_logos', $logo, 'public');
+        }
         if ($request->file('visitingcard')) {
-            $visitingcard = $request->file('visitingcard')->getClientOriginalName();
-            $request->file('visitingcard')->storeAs('visitingcards', $request->visitingcard->getClientOriginalName(), 'public');
+            $visitingcard = time().$request->file('visitingcard')->getClientOriginalName();
+            $request->file('visitingcard')->storeAs('visiting_cards', $visitingcard, 'public');
         }
         Business::create([
             'user_id' => 1,
@@ -102,18 +106,22 @@ class BusinessController extends Controller
      */
     public function update(Request $request, Business $business)
     {
-        $this->rules = ['logo' => 'image|mimes:jpg,png,jpeg'];
         $request->validate($this->rules);
-        $logo = '';
-        $visitingcard = '';
-        if ($request->file('visitingcard')) {
-            $visitingcard = $request->file('visitingcard')->getClientOriginalName();
-            $request->file('visitingcard')->storeAs('visitingcards', $request->visitingcard->getClientOriginalName(), 'public');
-        }
+
         if ($request->file('logo')) {
-            $logo = $request->file('logo')->getClientOriginalName();
-            $request->file('logo')->storeAs('logos', $request->logo->getClientOriginalName(), 'public');
+            Storage::delete('public/business_logos/'.$business->logo);
+            $logo = time().$request->file('logo')->getClientOriginalName();
+            $request->file('logo')->storeAs('business_logos', $logo, 'public');
+            $business->update(['logo' => $logo]);
         }
+
+        if ($request->file('visitingcard')) {
+            Storage::delete('public/visiting_cards/'.$business->visitingcard);
+            $visitingcard = time().$request->file('visitingcard')->getClientOriginalName();
+            $request->file('visitingcard')->storeAs('visiting_cards', $visitingcard, 'public');
+            $business->update(['visitingcard' => $visitingcard]);
+        }
+
         $business->update([
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
@@ -124,10 +132,9 @@ class BusinessController extends Controller
             'contact' => $request->contact,
             'email' => $request->email,
             'address' => $request->address,
-            'logo' => $logo,
-            'visitingcard' => $visitingcard,
             'status' => $request->status,
         ]);
+
         return redirect()->route('business.index');
     }
 
@@ -139,9 +146,9 @@ class BusinessController extends Controller
      */
     public function destroy(Business $business)
     {
+        Storage::delete('public/business_logos/'.$business->logo);
+        Storage::delete('public/visiting_cards/'.$business->visitingcard);
         $business->delete();
-        Storage::delete('public/logos/'.$business->picture);
-        Storage::delete('public/visitingcards/'.$business->visitingcard);
         return redirect()->route('business.index');
     }
 }

@@ -31,20 +31,10 @@
                         <div class="form-group col-md-4">
                             <label class="form-label">Middle Name</label>
                             <input name="middle_name" type="text" class="form-control" placeholder="Middle Name">
-                            <small class="text-danger">
-                                @error('middle_name')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                         <div class="form-group col-md-4">
                             <label class="form-label">Last Name</label>
                             <input name="last_name" type="text" class="form-control" placeholder="Last Name">
-                            <small class="text-danger">
-                                @error('last_name')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                     </div>
                     <div class="form-row">
@@ -60,33 +50,18 @@
                         <div class="form-group col-md-6">
                             <label class="form-label">Category</label>
                             <input name="category" type="text" class="form-control" placeholder="Category">
-                            <small class="text-danger">
-                                @error('category')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="form-label">Description</label>
                             <textarea name="description" class="form-control" placeholder="Business Description..."></textarea>
-                            <small class="text-danger">
-                                @error('description')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="form-label">Contact Number</label>
                             <input name="contact" type="tel" class="form-control" placeholder="Contact Number">
-                            <small class="text-danger">
-                                @error('contact')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Email</label><br>
