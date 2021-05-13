@@ -51,7 +51,7 @@
                         @foreach ($users as $user)
                         <tr class="text-center">
                             <td>{{$user->role_id}}</td>
-                            <td>{{$user->first_name.$user->middle_name.$user->last_name}}</td>
+                            <td>{{$user->first_name.' '.$user->middle_name.' '.$user->last_name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->mobile_number}}</td>
                             <td>{{$user->gender}}</td>
@@ -59,7 +59,11 @@
                             <td>{{$user->address}}</td>
                             <td>{{$user->city}}</td>
                             <td>
-                                <img class="border rounded" src="{{ asset('/images/'.$user->picture) }}" height="60">
+                                @if($user->picture)
+                                    <img class="border rounded" src="{{ asset('/images/'.$user->picture) }}" height="60">
+                                @else
+                                    <img class="border rounded" src="https://e7.pngegg.com/pngimages/456/700/png-clipart-computer-icons-avatar-user-profile-avatar-heroes-logo.png" height="60">
+                                @endif
                             </td>
                             <td>
                                 <a href="{{route('user.edit',$user)}}">
