@@ -53,7 +53,7 @@
                         @foreach ($employees as $employee)
                         <tr class="text-center">
                             <td>{{$employee->user_id}}</td>
-                            <td>{{$employee->first_name.$employee->middle_name.$employee->last_name}}</td>
+                            <td>{{$employee->first_name.' '.$employee->middle_name.' '.$employee->last_name}}</td>
                             <td>{{$employee->office}}</td>
                             <td>{{$employee->category}}</td>
                             <td>{{$employee->designation}}</td>
@@ -61,7 +61,11 @@
                             <td>{{$employee->email}}</td>
                             <td>{{$employee->address}}</td>
                             <td>
-                                <img class="border rounded" src="" height="60">{{$employee->logo}}
+                            @if($employee->logo)
+                                <img class="border rounded" src="{{asset('employee_logo/'.$employee->logo)}}" height="60">
+                            @else
+                                <img class="border rounded" src="https://png.pngtree.com/element_pic/00/16/07/06577d261edb9ec.jpg" height="60">{{$employee->logo}}
+                            @endif
                             </td>
                             <td>{{$employee->status}}</td>
                             <td>{{$employee->done_by}}</td>

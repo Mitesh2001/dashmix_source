@@ -118,6 +118,11 @@
                                 <input type="file" name="file" class="custom-file-input" id="pictureInput">
                                 <label class="custom-file-label" for="pictureInput">Choose file</label>
                             </div>
+                            <small class="text-danger">
+                                @error('logo')
+                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
+                                @enderror
+                            </small>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary my-5 mx-3">Create User</button>

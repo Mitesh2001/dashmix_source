@@ -13,7 +13,7 @@ class EmployeeController extends Controller
         'office' => 'required',
         'category' => 'required',
         'contact' => 'required|numeric',
-        'logo' => 'required|image|mimes:jpg,png,jpeg'
+        'logo' => 'image|mimes:jpg,png,jpeg'
     ];
     /**
      * Display a listing of the resource.
@@ -44,8 +44,11 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $request->validate($this->rules);
-        $logo = $request->file('logo')->getClientOriginalName();
-        $request->file('logo')->storeAs('employee_logos', $request->logo->getClientOriginalName(), 'public');
+        $logo = '';
+        if ($request->file()) {
+            $logo = time().$request->file('logo')->getClientOriginalName();
+            $request->file('logo')->storeAs('employee_logos', $logo, 'public');
+        }
         Employee::create([
             'user_id' => 1,
             'first_name' => $request->first_name,
@@ -95,14 +98,14 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        $this->rules['logo'] = 'image|mimes:jpg,png,jpeg';
         $request->validate($this->rules);
-        $logo = '';
         if ($request->file('logo')) {
+            Storage::delete('public/employee_logos/'.$employee->logo);
             $logo = $request->file('logo')->getClientOriginalName();
             $request->file('logo')->storeAs('employee_logos', $request->logo->getClientOriginalName(), 'public');
+            $employee->update(['logo' => $logo]);
         }
-        Employee::create([
+        $employee->update([
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
@@ -112,7 +115,6 @@ class EmployeeController extends Controller
             'contact' => $request->contact,
             'email' => $request->email,
             'address' => $request->address,
-            'logo' => $logo,
             'status' => $request->status,
         ]);
         return redirect()->route('employee.index');
@@ -126,8 +128,8 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        $employee->delete();
         Storage::delete('public/employee_logos/'.$employee->logo);
+        $employee->delete();
         return redirect()->route('employee.index');
     }
 }
