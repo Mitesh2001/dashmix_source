@@ -54,6 +54,11 @@
                         <div class="form-group col-md-6">
                             <label class="form-label">Skills</label>
                             <input name="skills" type="text" class="form-control" placeholder="Skills">
+                            <small class="text-danger">
+                                @error('skills')
+                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
+                                @enderror
+                            </small>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Education Qualification</label>

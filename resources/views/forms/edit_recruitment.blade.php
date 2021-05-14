@@ -10,18 +10,19 @@
     <div class="content">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Create <small>Recruitement</small></h3>
+                <h3 class="block-title">Edit <small>Recruitement</small></h3>
                 <a href="{{route('recruitment.index')}}" class="btn btn-primary m-2">
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
             <div class="block-content block-content-full">
-                <form action="{{route('recruitment.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('recruitment.update',$recruitment)}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="form-label">Headline</label>
-                            <textarea name="headline" rows="2" class="form-control" placeholder="Headline..."></textarea>
+                            <textarea name="headline" rows="2" class="form-control" placeholder="Headline...">{{$recruitment->headline}}</textarea>
                             <small class="text-danger">
                                 @error('headline')
                                     <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
@@ -32,7 +33,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-8">
                             <label class="form-label">Title</label>
-                            <input name="title" type="text" class="form-control" placeholder="Title">
+                            <input name="title" type="text" class="form-control" placeholder="Title" value="{{$recruitment->title}}">
                             <small class="text-danger">
                                 @error('title')
                                     <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
@@ -41,23 +42,23 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label class="form-label">Category</label>
-                            <input name="category" type="text" class="form-control" placeholder="Category">
+                            <input name="category" type="text" class="form-control" placeholder="Category" value="{{$recruitment->category}}">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label class="form-label">Description</label>
-                            <textarea name="description" rows="3" class="form-control" placeholder="Description..."></textarea>
+                            <textarea name="description" rows="3" class="form-control" placeholder="Description...">{{$recruitment->description}}</textarea>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="form-label">Skills</label>
-                            <input name="skills" type="text" class="form-control" placeholder="Skills">
+                            <input name="skills" type="text" class="form-control" placeholder="Skills" value="{{$recruitment->skills}}">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Education Qualification</label>
-                            <input name="education_quailification" type="text" class="form-control" placeholder="Education Qualification">
+                            <input name="education_quailification" type="text" class="form-control" placeholder="Education Qualification" value="{{$recruitment->education_quailification}}">
                         </div>
                     </div>
                     <div class="form-row">
@@ -89,18 +90,14 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="form-label">Reference Url</label>
-                            <input name="reference_url" type="text" class="form-control" placeholder="Reference Url">
+                            <input name="reference_url" type="text" class="form-control" placeholder="Reference Url" value="{{$recruitment->reference_url}}">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Status</label>
-                            <input name="status" type="text" class="form-control" placeholder="Status">
+                            <input name="status" type="text" class="form-control" placeholder="Status" value="{{$recruitment->status}}">
                         </div>
-                        <!-- <div class="form-group col-md-6">
-                            <label class="form-label">Reported datetime</label>
-                            <input name="reported_datetime" type="datetime-local" class="form-control">
-                        </div> -->
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Create Recruitement</button>
+                    <button type="submit" class="btn btn-primary my-5 mx-3">Update Recruitement</button>
                     <a href="{{route('recruitment.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
                 </form>
             </div>

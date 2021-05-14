@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Recruitment extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'headline',
+        'title',
+        'category',
+        'description',
+        'skills',
+        'education_quailification',
+        'thumbnail',
+        'news_image',
+        'reference_url',
+        'reported_datetime',
+        'status',
+        'done_by'
+    ];
 }
