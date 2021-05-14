@@ -34,7 +34,7 @@
                             <label class="form-label">Title</label>
                             <input name="title" type="text" class="form-control" placeholder="News Title">
                             <small class="text-danger">
-                                @error('first_name')
+                                @error('title')
                                     <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
                                 @enderror
                             </small>
@@ -57,6 +57,11 @@
                                 <input type="file" name="thumbnail" class="custom-file-input" id="thumbnailInput">
                                 <label class="custom-file-label" for="thumbnailInput">Choose Thumbnail</label>
                             </div>
+                            <small class="text-danger">
+                                @error('thumbnail')
+                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
+                                @enderror
+                            </small>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">News Image</label>
@@ -64,6 +69,11 @@
                                 <input type="file" name="news_image" class="custom-file-input" id="imageInput">
                                 <label class="custom-file-label" for="imageInput">Choose Image</label>
                             </div>
+                            <small class="text-danger">
+                                @error('news_image')
+                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
+                                @enderror
+                            </small>
                         </div>
                     </div>
                     <div class="form-row">
