@@ -15,8 +15,8 @@
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
-            <div class="block-content block-content-full">
-                <form action="{{route('news.update',$news)}}" method="POST" enctype="multipart/form-data">
+            <div class="block-content block-content-full p-5">
+                <form action="{{route('news.update',$news)}}" method="POST" enctype="multipart/form-data" class="shadow rounded p-5">
                     @csrf
                     @method('PUT')
                     <div class="form-row">

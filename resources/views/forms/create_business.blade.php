@@ -15,8 +15,8 @@
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
-            <div class="block-content block-content-full">
-                <form action="{{route('business.store')}}" method="POST" enctype="multipart/form-data">
+            <div class="block-content block-content-full p-5">
+                <form action="{{route('business.store')}}" method="POST" enctype="multipart/form-data" class="shadow rounded p-5">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-4">
@@ -91,7 +91,7 @@
                             <label class="form-label">Visiting Card</label>
                             <div class="custom-file">
                                 <input type="file" name="visitingcard" class="custom-file-input" id="cardInput">
-                                <label class="custom-file-label" for="cardInput">Choose Logo</label>
+                                <label class="custom-file-label" for="cardInput">Choose Visiting</label>
                             </div>
                             <small class="text-danger">
                                 @error('visitingcard')
@@ -106,8 +106,10 @@
                             <input name="status" type="text" class="form-control" placeholder="Status">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Create Business</button>
-                    <a href="{{route('business.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary my-5 mx-3">Create Business</button>
+                        <a href="{{route('business.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>

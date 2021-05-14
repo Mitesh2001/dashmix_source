@@ -14,8 +14,8 @@
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
-            <div class="block-content block-content-full">
-                <form action="{{route('candidate.store')}}" method="POST" enctype="multipart/form-data">
+            <div class="block-content block-content-full p-5">
+                <form action="{{route('candidate.store')}}" method="POST" enctype="multipart/form-data" class="shadow rounded p-5">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-4">

@@ -15,8 +15,8 @@
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
-            <div class="block-content block-content-full">
-                <form action="{{route('business.update',$business)}}" method="POST" enctype="multipart/form-data">
+            <div class="block-content block-content-full p-5">
+                <form action="{{route('business.update',$business)}}" method="POST" enctype="multipart/form-data" class="shadow rounder p-5">
                     @csrf
                     @method('PUT')
                     <div class="form-row">
@@ -127,8 +127,10 @@
                             <input name="status" type="text" class="form-control" placeholder="Status" value="{{$business->status}}">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Update Business</button>
-                    <a href="{{route('business.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary my-5 mx-3">Update Business</button>
+                        <a href="{{route('business.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>
