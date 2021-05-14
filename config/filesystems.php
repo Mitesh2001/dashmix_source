@@ -86,6 +86,7 @@ return [
         public_path('candidate_picture') => storage_path('app/public/candidate_pictures'),
         public_path('thumbnail') => storage_path('app/public/thumbnails'),
         public_path('news_image') => storage_path('app/public/news_images'),
+        public_path('late_picture') => storage_path('app/public/late_pictures'),
     ],
 
 ];

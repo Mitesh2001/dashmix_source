@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Late extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'first_name',
+        'middle_name',
+        'last_name',
+        'late_date',
+        'birth_date',
+        'gujarati_savant',
+        'address',
+        'shradhhanjali',
+        'subhechhak',
+        'notifications',
+        'contact',
+        'picture',
+        'status',
+        'done_by'
+    ];
 }

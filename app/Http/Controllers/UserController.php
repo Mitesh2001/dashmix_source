@@ -103,9 +103,6 @@ class UserController extends Controller
         $this->rules['password'] = '';
         $request->validate($this->rules);
 
-        $profileName = $user->picture;
-        $password = $user->password;
-
         $request->password ? $user->update(['password' => $request->password]) : '';
 
         if ($request->file()) {
