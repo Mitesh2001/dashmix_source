@@ -359,6 +359,18 @@
                                     <span class="nav-main-link-name">News</span>
                                 </a>
                             </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('recruitment'.'*') ? ' active' : '' }}" href="{{route('recruitment.index')}}">
+                                    <i class="nav-main-link-icon bi bi-search"></i>
+                                    <span class="nav-main-link-name">Recruitments</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link{{ request()->is('late'.'*') ? ' active' : '' }}" href="{{route('late.index')}}">
+                                    <i class="nav-main-link-icon bi bi-circle-fill"></i>
+                                    <span class="nav-main-link-name">Late</span>
+                                </a>
+                            </li>
                             <li class="nav-main-heading">More</li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="/">

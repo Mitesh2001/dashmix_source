@@ -24,7 +24,7 @@ class LateController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.create_late');
     }
 
     /**

@@ -3,10 +3,10 @@
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LateController;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\PersonController;
+use App\Http\Controllers\RecruitmentController;
 use App\Http\Controllers\UserController;
-use App\Models\Person;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +33,5 @@ Route::resource('business', BusinessController::class);
 Route::resource('employee', EmployeeController::class);
 Route::resource('candidate', CandidateController::class);
 Route::resource('news', NewsController::class);
+Route::resource('recruitment', RecruitmentController::class);
+Route::resource('late', LateController::class);

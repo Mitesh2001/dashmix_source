@@ -24,7 +24,7 @@ class RecruitmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.create_recruitment');
     }
 
     /**
