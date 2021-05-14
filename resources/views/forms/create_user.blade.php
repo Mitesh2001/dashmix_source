@@ -119,7 +119,7 @@
                                 <label class="custom-file-label" for="pictureInput">Choose file</label>
                             </div>
                             <small class="text-danger">
-                                @error('logo')
+                                @error('file')
                                     <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
                                 @enderror
                             </small>
