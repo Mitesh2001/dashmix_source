@@ -108,8 +108,10 @@
                             <input name="status" type="text" class="form-control" placeholder="Status"value="{{$employee->status}}">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Update Employee</button>
-                    <a href="{{route('employee.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary my-5 mx-3">Update Employee</button>
+                        <a href="{{route('employee.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>

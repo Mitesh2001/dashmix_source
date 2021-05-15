@@ -7,6 +7,7 @@
     <style>
         .text-box-height{
             height: 42px;
+            cursor:not-allowed;
         }
     </style>
 @endsection
@@ -33,7 +34,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title">Dynamic Table <small>Candidates</small></h3>
                 <a href="{{route('candidate.create')}}" class="btn btn-outline-primary m-2">
-                    <i class="bi bi-person-plus-fill"></i> Add Candidate
+                    <i class="bi bi-plus-lg"></i> Create Candidate
                 </a>
             </div>
             @foreach ($candidates as $candidate)

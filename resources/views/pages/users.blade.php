@@ -28,7 +28,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title">Dynamic Table <small>Users</small></h3>
                 <a href="{{route('user.create')}}" class="btn btn-outline-primary m-2">
-                    <i class="bi bi-person-plus-fill"></i> Create User
+                    <i class="bi bi-plus-lg"></i> Create User
                 </a>
             </div>
             <div class="block-content block-content-full">

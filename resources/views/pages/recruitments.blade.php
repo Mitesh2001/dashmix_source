@@ -28,7 +28,7 @@
             <div class="block-header block-header-default">
                 <h3 class="block-title">Dynamic Table <small>Recruitments</small></h3>
                 <a href="{{route('recruitment.create')}}" class="btn btn-outline-primary m-2">
-                    <i class="bi bi-person-plus-fill"></i> Create Recruitments
+                    <i class="bi bi-plus-lg"></i> Create Recruitments
                 </a>
             </div>
             <div class="block-content block-content-full">
