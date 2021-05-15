@@ -176,8 +176,8 @@
                         <div class="form-group col-md-12">
                             <label class="form-label">Status</label>
                             <select class="form-select form-control" name="status" aria-label="Default select example">
-                                <option value="active" selected>Active</option>
-                                <option value="deactive">Deactive</option>
+                                <option value="Active" selected>Active</option>
+                                <option value="Deactive">Deactive</option>
                             </select>
                         </div>
                     </div>
