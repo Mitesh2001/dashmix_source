@@ -69,7 +69,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Shradhhanjali</label>
-                            <textarea class="form-control" rows="2" name="shradhhanjali" placeholder="Shradhhanjali..."></textarea>
+                            <button type="button" ></button>
+                            <textarea class="form-control" name="shradhhanjali" placeholder="Shradhhanjali..."></textarea>
                         </div>
                     </div>
                     <div class="form-row">
@@ -106,5 +107,9 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('shradhhanjali');
+    </script>
     <!-- END Page Content -->
 @endsection

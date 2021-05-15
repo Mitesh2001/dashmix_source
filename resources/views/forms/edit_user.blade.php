@@ -75,20 +75,8 @@
                             <label class="form-label">Gender</label><br>
                             <select class="browser-default custom-select" name="gender">
                                 <option value="">Select Gender</option>
-                                <option value="Male"
-                                <?php
-                                    if ($user->gender == "Male") {
-                                        echo 'selected';
-                                    }
-                                ?>
-                                >Male</option>
-                                <option value="Female"
-                                <?php
-                                    if ($user->gender == "Female") {
-                                        echo 'selected';
-                                    }
-                                ?>
-                                >Female</option>
+                                <option value="Male" {{$user->gender == "Male" ?  'selected' : ''}} > Male</option>
+                                <option value="Female" {{$user->gender == "Female" ?  'selected' : ''}} > Female</option>
                             </select>
                         </div>
                     </div>

@@ -176,7 +176,10 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label class="form-label">Status</label>
-                            <input name="status" type="text" class="form-control" placeholder="Status" value="{{$candidate->status}}">
+                            <select class="form-select form-control" name="status" aria-label="Default select example">
+                                <option value="active" {{$candidate->status == "active" ?  'selected' : ''}} > Active</option>
+                                <option value="deactive" {{$candidate->status == "deactive" ?  'selected' : ''}} > Deactive</option>
+                            </select>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">

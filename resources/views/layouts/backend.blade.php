@@ -29,6 +29,10 @@
             overflow-x:auto;
             cursor:not-allowed;
         }
+        .modal-devider{
+            border: black 1px solid;
+            margin: 25px 0px 25px 0px;
+        }
     </style>
         <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="{{ mix('css/themes/xwork.css') }}"> -->
@@ -377,13 +381,13 @@
                                     <span class="nav-main-link-name">Late</span>
                                 </a>
                             </li>
-                            <li class="nav-main-heading">More</li>
+                            <!-- <li class="nav-main-heading">More</li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link" href="/">
                                     <i class="nav-main-link-icon fa fa-globe"></i>
                                     <span class="nav-main-link-name">Landing</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <!-- END Side Navigation -->
