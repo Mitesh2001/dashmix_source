@@ -367,7 +367,7 @@
                             </li>
                             <li class="nav-main-item">
                                 <a class="nav-main-link{{ request()->is('late'.'*') ? ' active' : '' }}" href="{{route('late.index')}}">
-                                    <i class="nav-main-link-icon bi bi-circle-fill"></i>
+                                    <i class="nav-main-link-icon fas fa-cross"></i>
                                     <span class="nav-main-link-name">Late</span>
                                 </a>
                             </li>

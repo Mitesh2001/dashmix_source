@@ -178,8 +178,10 @@
                             <input name="status" type="text" class="form-control" placeholder="Status">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Create Candidate</button>
-                    <a href="{{route('candidate.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary my-5 mx-3">Create Candidate</button>
+                        <a href="{{route('candidate.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>

@@ -42,7 +42,6 @@
                             <th scope="col">Gender</th>
                             <th scope="col">BirthDate</th>
                             <th scope="col">Address</th>
-                            <th scope="col">City</th>
                             <th scope="col">Picture</th>
                             <th scope="col">Action</th>
                         </tr>
@@ -57,7 +56,6 @@
                             <td>{{$user->gender}}</td>
                             <td>{{$user->birth_date}}</td>
                             <td>{{$user->address}}</td>
-                            <td>{{$user->city}}</td>
                             <td>
                                 @if($user->picture)
                                     <img class="border rounded" src="{{ asset('/images/'.$user->picture) }}" height="60">
@@ -66,16 +64,18 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{route('user.edit',$user)}}">
-                                    <i class="bi bi-pencil btn btn-primary"></i>
-                                </a>
-                                <form action="{{route('user.destroy',$user)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="bi bi-archive-fill"></i>
-                                    </button>
-                                </form>
+                                <div class="d-flex">
+                                    <a href="{{route('user.edit',$user)}}" class="btn btn-primary mx-1">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <form action="{{route('user.destroy',$user)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger mx-1">
+                                            <i class="fas fa-user-minus"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         @endforeach
