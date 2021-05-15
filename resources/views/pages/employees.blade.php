@@ -32,104 +32,7 @@
                     <i class="bi bi-plus-lg"></i> Create Employee
                 </a>
             </div>
-            @foreach ($employees as $employee)
-            <div class="modal fade" id="Modal-{{$employee->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">
-                                {{$employee->first_name.' '.$employee->middle_name.' '.$employee->last_name}}
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="shadow rounded p-5">
-                                <div class="row my-3">
-                                    <div class="form-group col-md-4">
-                                        <label class="form-label">First Name</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->first_name}}
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label class="form-label">Middle Name</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->middle_name}}
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label class="form-label">Last Name</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->last_name}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">Office</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->office}}
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">Category</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->category}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">Designation</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->designation}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">Contact Number</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->contact}}
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">Email</label><br>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->email}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">Address</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->address}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">Status</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$employee->status}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <a href="{{route('employee.edit',$employee)}}">
-                                <button type="button" class="btn btn-primary">Edit Employee</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
+           @include('modals.employees_modal')
             <div class="block-content block-content-full">
                 <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
@@ -139,7 +42,6 @@
                             <th scope="col">Office</th>
                             <th scope="col">Category</th>
                             <th scope="col">Contact</th>
-                            <th scope="col">Address</th>
                             <th scope="col">Logo</th>
                             <th scope="col">Status</th>
                             <th scope="col">Done By</th>
@@ -154,7 +56,6 @@
                             <td>{{$employee->office}}</td>
                             <td>{{$employee->category}}</td>
                             <td>{{$employee->contact}}</td>
-                            <td>{{$employee->address}}</td>
                             <td>
                             @if($employee->logo)
                                 <img class="border rounded" src="{{asset('employee_logo/'.$employee->logo)}}" height="60">

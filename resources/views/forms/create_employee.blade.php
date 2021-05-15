@@ -104,11 +104,16 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Status</label>
-                            <input name="status" type="text" class="form-control" placeholder="Status">
+                            <select class="form-select form-control" name="status" aria-label="Default select example">
+                                <option value="Active" selected>Active</option>
+                                <option value="Deactive">Deactive</option>
+                            </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Create Employee</button>
-                    <a href="{{route('employee.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <div class=" d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary my-5 mx-3">Create Employee</button>
+                        <a href="{{route('employee.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>
