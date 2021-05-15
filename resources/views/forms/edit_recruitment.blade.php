@@ -63,6 +63,10 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
+                            <label class="form-label">Reported datetime</label>
+                            <input name="reported_datetime" type="datetime-local" class="form-control" value="{{$recruitment->reported_datetime}}">
+                        </div>
+                        <div class="form-group col-md-6">
                             <label class="form-label">Thumbnail</label>
                             <div class="custom-file">
                                 <input type="file" name="thumbnail" class="custom-file-input" id="thumbnailInput">
@@ -70,18 +74,6 @@
                             </div>
                             <small class="text-danger">
                                 @error('thumbnail')
-                                    <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
-                                @enderror
-                            </small>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label class="form-label">News Image</label>
-                            <div class="custom-file">
-                                <input type="file" name="news_image" class="custom-file-input" id="imageInput">
-                                <label class="custom-file-label" for="imageInput">Choose Image</label>
-                            </div>
-                            <small class="text-danger">
-                                @error('news_image')
                                     <span class="text-red-500 text-xs"><i class="fa fa-bug"></i> {{ $message }}</span>
                                 @enderror
                             </small>

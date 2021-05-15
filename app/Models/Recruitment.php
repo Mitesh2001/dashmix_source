@@ -16,7 +16,6 @@ class Recruitment extends Model
         'skills',
         'education_quailification',
         'thumbnail',
-        'news_image',
         'reference_url',
         'reported_datetime',
         'status',

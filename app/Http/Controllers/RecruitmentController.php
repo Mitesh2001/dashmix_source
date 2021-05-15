@@ -12,8 +12,7 @@ class RecruitmentController extends Controller
         'headline' => 'required',
         'title' => 'required',
         'skills' => 'required',
-        'thumbnail' => 'mimes:jpeg,jpg,png',
-        'news_image' => 'mimes:jpeg,jpg,png',
+        'thumbnail' => 'mimes:jpeg,jpg,png'
     ];
     /**
      * Display a listing of the resource.
@@ -45,14 +44,9 @@ class RecruitmentController extends Controller
     {
         $request->validate($this->rules);
         $thumbnailName = '';
-        $news_image = '';
         if ($request->file('thumbnail')) {
             $thumbnailName = time().$request->file('thumbnail')->getClientOriginalName();
             $request->file('thumbnail')->storeAs('thumbnails', $thumbnailName, 'public');
-        }
-        if ($request->file('news_image')) {
-            $news_image = time().$request->file('news_image')->getClientOriginalName();
-            $request->file('news_image')->storeAs('news_images', $news_image, 'public');
         }
         Recruitment::create([
             'headline' => $request->headline,
@@ -62,9 +56,8 @@ class RecruitmentController extends Controller
             'skills' => $request->skills,
             'education_quailification' => $request->education_quailification,
             'thumbnail' => $thumbnailName,
-            'news_image' => $news_image,
             'reference_url' => $request->reference_url,
-            'reported_datetime' => now(),
+            'reported_datetime' => $request->reported_datetime,
             'status' => $request->status,
             'done_by' => 1
         ]);
@@ -109,12 +102,6 @@ class RecruitmentController extends Controller
             $request->file('thumbnail')->storeAs('thumbnails', $thumbnailName, 'public');
             $recruitment->update(['thumbnail' => $thumbnailName]);
         }
-        if ($request->file('news_image')) {
-            Storage::delete('public/news_images/'.$recruitment->news_image);
-            $news_image = time().$request->file('news_image')->getClientOriginalName();
-            $request->file('news_image')->storeAs('news_images', $news_image, 'public');
-            $recruitment->update(['news_image' => $news_image]);
-        }
         $recruitment->update([
             'headline' => $request->headline,
             'title' => $request->title,
@@ -123,7 +110,7 @@ class RecruitmentController extends Controller
             'skills' => $request->skills,
             'education_quailification' => $request->education_quailification,
             'reference_url' => $request->reference_url,
-            'reported_datetime' => now(),
+            'reported_datetime' => $request->reported_datetime,
             'status' => $request->status,
         ]);
         return redirect()->route('recruitment.index');
@@ -138,7 +125,6 @@ class RecruitmentController extends Controller
     public function destroy(Recruitment $recruitment)
     {
         Storage::delete('public/thumbnails/'.$recruitment->thumbnail);
-        Storage::delete('public/news_images/'.$recruitment->news_image);
         $recruitment->delete();
         return redirect()->route('recruitment.index');
     }

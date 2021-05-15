@@ -22,7 +22,6 @@ class CreateRecruitmentsTable extends Migration
             $table->string('skills')->nullable();
             $table->string('education_quailification')->nullable();
             $table->string('thumbnail')->nullable();
-            $table->string('news_image')->nullable();
             $table->string('reference_url')->nullable();
             $table->dateTime('reported_datetime')->nullable();
             $table->string('status')->nullable();

@@ -42,7 +42,6 @@
                             <th scope="col">Skills</th>
                             <th scope="col">Educational Qualification</th>
                             <th scope="col">Thumbnail</th>
-                            <th scope="col">News Image</th>
                             <th scope="col">Reference Url</th>
                             <th scope="col">Reported Date-Time</th>
                             <th scope="col">Status</th>
@@ -62,11 +61,6 @@
                             <td>
                             @if($recruitment->thumbnail)
                                 <img class="border rounded" src="{{asset('thumbnail/'.$recruitment->thumbnail)}}" height="60">
-                            @endif
-                            </td>
-                            <td>
-                            @if($recruitment->news_image)
-                                <img class="border rounded" src="{{asset('news_image/'.$recruitment->news_image)}}" height="60">
                             @endif
                             </td>
                             <td>{{$recruitment->reference_url}}</td>
