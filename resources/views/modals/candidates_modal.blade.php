@@ -170,7 +170,7 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Status :
-                            <span class="font-weight-normal">{{$candidate->education}}</span>
+                            <span class="font-weight-normal">{{$candidate->status}}</span>
                         </label>
                     </div>
                 </div>
