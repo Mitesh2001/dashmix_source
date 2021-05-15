@@ -31,14 +31,90 @@
                     <i class="bi bi-plus-lg"></i> Create News
                 </a>
             </div>
+            @foreach ($newses as $news)
+            <div class="modal fade" id="Modal-{{$news->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                {{$news->title}}
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="shadow rounded p-5">
+                                <div class="row my-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Headline</label>
+                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
+                                            {{$news->headline}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3">
+                                    <div class="col-md-8">
+                                        <label class="form-label">Title</label>
+                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
+                                            {{$news->title}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">Category</label>
+                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
+                                            {{$news->category}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3">
+                                    <div class="col-md-12">
+                                        <label class="form-label">Detail Report</label>
+                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
+                                            {{$news->detail_report}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Reported datetime</label>
+                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
+                                            {{$news->reported_datetime}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Reference</label>
+                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
+                                            {{$news->reference}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Status</label>
+                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
+                                            {{$news->status}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="{{route('news.edit',$news)}}">
+                                <button type="button" class="btn btn-primary">Edit News</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
             <div class="block-content block-content-full">
                 <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">Headline</th>
                             <th scope="col">Title</th>
                             <th scope="col">Category</th>
-                            <th scope="col">Detail Report</th>
                             <th scope="col">Thumbnail</th>
                             <th scope="col">News Image</th>
                             <th scope="col">Reported Date-Time</th>
@@ -51,10 +127,8 @@
                     <tbody>
                         @foreach ($newses as $news)
                         <tr class="text-center">
-                            <td>{{$news->headline}}</td>
                             <td>{{$news->title}}</td>
                             <td>{{$news->category}}</td>
-                            <td>{{$news->detail_report}}</td>
                             <td>
                                 @if($news->thumbnail)
                                     <img class="border rounded" src="{{asset('thumbnail/'.$news->thumbnail)}}" height="60">
@@ -71,18 +145,22 @@
                             <td>{{$news->status}}</td>
                             <td>{{$news->reference}}</td>
                             <td>{{$news->done_by}}</td>
-
                             <td>
-                                <a href="{{route('news.edit',$news)}}">
-                                    <i class="bi bi-pencil btn btn-primary"></i>
-                                </a>
-                                <form action="{{route('news.destroy',$news)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="bi bi-archive-fill"></i>
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#Modal-{{$news->id}}">
+                                        <i class="bi bi-aspect-ratio"></i>
                                     </button>
-                                </form>
+                                    <a href="{{route('news.edit',$news)}}" class="btn btn-primary mx-2">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <form action="{{route('news.destroy',$news)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger mx-2">
+                                            <i class="bi bi-archive-fill"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

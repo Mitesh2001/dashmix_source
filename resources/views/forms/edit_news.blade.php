@@ -78,10 +78,10 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <!-- <div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label class="form-label">Reported datetime</label>
                             <input name="reported_datetime" type="datetime-local" class="form-control" value="{{$news->reported_datetime}}">
-                        </div> -->
+                        </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Reference</label>
                             <input name="reference" type="text" class="form-control" placeholder="Reference" value="{{$news->reference}}">
@@ -93,8 +93,10 @@
                             <input name="status" type="text" class="form-control" placeholder="Status" value="{{$news->status}}">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Update News</button>
-                    <a href="{{route('news.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary my-5 mx-3">Update News</button>
+                        <a href="{{route('news.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>

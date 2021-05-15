@@ -62,7 +62,7 @@ class NewsController extends Controller
             'detail_report' => $request->detail_report,
             'thumbnail' => $thumbnailName,
             'news_image' => $news_image,
-            'reported_datetime' => now(),
+            'reported_datetime' => $request->reported_datetime,
             'reference' => $request->reference,
             'status' => $request->status,
             'done_by' => 1
@@ -119,7 +119,7 @@ class NewsController extends Controller
             'title' => $request->title,
             'category' => $request->category,
             'detail_report' => $request->detail_report,
-            'reported_datetime' => now(),
+            'reported_datetime' => $request->reported_datetime,
             'reference' => $request->reference,
             'status' => $request->status
         ]);
