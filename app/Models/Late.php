@@ -17,7 +17,6 @@ class Late extends Model
         'gujarati_savant',
         'address',
         'shradhhanjali',
-        'subhechhak',
         'notifications',
         'contact',
         'picture',

@@ -31,19 +31,15 @@
                     <i class="bi bi-plus-lg"></i> Create Late
                 </a>
             </div>
+            @include('modals.lates_modal')
             <div class="block-content block-content-full">
                 <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr class="text-center">
                             <th scope="col">Full Name</th>
                             <th scope="col">Late Date</th>
-                            <th scope="col">BirthDate</th>
                             <th scope="col">Gujarati Savant</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Shradhhanjali</th>
-                            <th scope="col">Subhechhak</th>
                             <th scope="col">Notifications</th>
-                            <th scope="col">Contact</th>
                             <th scope="col">Picture</th>
                             <th scope="col">Status</th>
                             <th scope="col">Done By</th>
@@ -54,32 +50,34 @@
                         @foreach ($lates as $late)
                         <tr class="text-center">
                             <td>{{$late->first_name.' '.$late->middle_name.' '.$late->last_name}}</>
-                            <td>{{$late->birth_date}}</td>
                             <td>{{$late->late_date}}</td>
                             <td>{{$late->gujarati_savant}}</td>
-                            <td>{{$late->address}}</td>
-                            <td>{{$late->shradhhanjali}}</td>
-                            <td>{{$late->subhechhak}}</td>
                             <td>{{$late->notifications}}</td>
-                            <td>{{$late->contact}}</td>
                             <td>
                                 @if($late->picture)
                                     <img class="border rounded" src="{{ asset('/late_picture/'.$late->picture) }}" height="60">
+                                @else
+                                    <img class="border rounded" src="https://donatepoints.aircanada.com/img/no_image_available.jpg" height="60">
                                 @endif
                             </td>
                             <td>{{$late->status}}</td>
                             <td>{{$late->done_by}}</td>
                             <td>
-                                <a href="{{route('late.edit',$late)}}">
-                                    <i class="bi bi-pencil btn btn-primary"></i>
-                                </a>
-                                <form action="{{route('late.destroy',$late)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="bi bi-archive-fill"></i>
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-info mx-2" data-toggle="modal" data-target="#Modal-{{$late->id}}">
+                                        <i class="bi bi-aspect-ratio"></i>
                                     </button>
-                                </form>
+                                    <a href="{{route('late.edit',$late)}}" class="btn btn-primary mx-2">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <form action="{{route('late.destroy',$late)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger mx-2">
+                                            <i class="bi bi-archive-fill"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         @endforeach

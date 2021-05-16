@@ -59,6 +59,8 @@
                             <td>
                             @if($candidate->picture)
                                 <img class="border rounded" src="{{asset('candidate_picture/'.$candidate->picture)}}" height="60">
+                            @else
+                                <img class="border rounded" src="https://donatepoints.aircanada.com/img/no_image_available.jpg" height="60">
                             @endif
                             </td>
                             <td>{{$candidate->status}}</td>

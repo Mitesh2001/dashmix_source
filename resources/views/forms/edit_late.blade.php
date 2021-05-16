@@ -64,23 +64,19 @@
                         </div>
                     </div>
                     <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label class="form-label">Shradhhanjali</label>
+                            <textarea class="form-control" name="shradhhanjali" placeholder="Shradhhanjali...">{{$late->shradhhanjali}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="form-label">Address</label>
                             <textarea class="form-control" rows="2" name="address" placeholder="Address...">{{$late->address}}</textarea>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="form-label">Shradhhanjali</label>
-                            <textarea class="form-control" rows="2" name="shradhhanjali" placeholder="Shradhhanjali...">{{$late->shradhhanjali}}</textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label class="form-label">Subhechhak</label>
-                            <input type="text" name="subhechhak" class="form-control" placeholder="Subhechhak..." value="{{$late->subhechhak}}">
-                        </div>
-                        <div class="form-group col-md-6">
                             <label class="form-label">Notifications</label>
-                            <textarea class="form-control" rows="1" name="notifications" placeholder="Notifications...">{{$late->notifications}}</textarea>
+                            <textarea class="form-control" rows="2" name="notifications" placeholder="Notifications...">{{$late->notifications}}</textarea>
                         </div>
                     </div>
                     <div class="form-row">
@@ -98,14 +94,23 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Status</label>
-                            <input type="text" name="status" placeholder="Status" class="form-control" value="{{$late->subhechhak}}">
+                            <select class="form-select form-control" name="status" aria-label="Default select example">
+                                <option value="Active" {{$late->status == "Active" ?  'selected' : ''}} > Active</option>
+                                <option value="Deactive" {{$late->status == "Deactive" ?  'selected' : ''}} > Deactive</option>
+                            </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Update Late</button>
-                    <a href="{{route('late.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary my-5 mx-3">Update Late</button>
+                        <a href="{{route('late.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
+    <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('shradhhanjali');
+    </script>
     <!-- END Page Content -->
 @endsection

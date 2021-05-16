@@ -63,11 +63,7 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label class="form-label">Address</label>
-                            <textarea class="form-control" rows="2" name="address" placeholder="Address..."></textarea>
-                        </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label class="form-label">Shradhhanjali</label>
                             <button type="button" ></button>
                             <textarea class="form-control" name="shradhhanjali" placeholder="Shradhhanjali..."></textarea>
@@ -75,12 +71,12 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label class="form-label">Subhechhak</label>
-                            <input type="text" name="subhechhak" class="form-control" placeholder="Subhechhak...">
+                            <label class="form-label">Address</label>
+                            <textarea class="form-control" rows="2" name="address" placeholder="Address..."></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Notifications</label>
-                            <textarea class="form-control" rows="1" name="notifications" placeholder="Notifications..."></textarea>
+                            <textarea class="form-control" rows="2" name="notifications" placeholder="Notifications..."></textarea>
                         </div>
                     </div>
                     <div class="form-row">
@@ -98,11 +94,16 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Status</label>
-                            <input type="text" name="status" placeholder="Status" class="form-control">
+                            <select class="form-select form-control" name="status" aria-label="Default select example">
+                                <option value="Active" selected>Active</option>
+                                <option value="Deactive">Deactive</option>
+                            </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-5 mx-3">Create Late</button>
-                    <a href="{{route('late.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary my-5 mx-3">Create Late</button>
+                        <a href="{{route('late.index')}}" class="btn btn-secondary my-5 mx-3">Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>

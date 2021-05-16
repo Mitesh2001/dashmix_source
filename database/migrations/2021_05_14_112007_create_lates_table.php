@@ -23,7 +23,6 @@ class CreateLatesTable extends Migration
             $table->string('gujarati_savant')->nullable();
             $table->text('address')->nullable();
             $table->text('shradhhanjali')->nullable();
-            $table->string('subhechhak')->nullable();
             $table->string('notifications')->nullable();
             $table->bigInteger('contact')->nullable();
             $table->string('picture')->nullable();
