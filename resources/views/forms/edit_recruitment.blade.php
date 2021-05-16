@@ -86,7 +86,10 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label class="form-label">Status</label>
-                            <input name="status" type="text" class="form-control" placeholder="Status" value="{{$recruitment->status}}">
+                            <select class="form-select form-control" name="status" aria-label="Default select example">
+                                <option value="Active" {{$recruitment->status == "Active" ?  'selected' : ''}} > Active</option>
+                                <option value="Deactive" {{$recruitment->status == "Deactive" ?  'selected' : ''}} > Deactive</option>
+                            </select>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
