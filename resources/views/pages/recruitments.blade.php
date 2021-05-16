@@ -37,9 +37,9 @@
                         <tr class="text-center">
                             <th scope="col">Title</th>
                             <th scope="col">Skills</th>
-                            <th scope="col">Thumbnail</>
                             <th scope="col">Reference Url</th>
                             <th scope="col">Reported Date-Time</th>
+                            <th scope="col">Thumbnail</>
                             <th scope="col">Status</th>
                             <th scope="col">Done By</th>
                             <th scope="col">Action</th>
@@ -50,6 +50,8 @@
                         <tr class="text-center">
                             <td>{{$recruitment->title}}</td>
                             <td>{{$recruitment->skills}}</td>
+                            <td>{{$recruitment->reference_url}}</td>
+                            <td>{{$recruitment->reported_datetime}}</td>
                             <td>
                             @if($recruitment->thumbnail)
                                 <img class="border rounded" src="{{asset('thumbnail/'.$recruitment->thumbnail)}}" height="60">
@@ -57,8 +59,6 @@
                                 <img class="border rounded" src="https://donatepoints.aircanada.com/img/no_image_available.jpg" height="60">
                             @endif
                             </td>
-                            <td>{{$recruitment->reference_url}}</td>
-                            <td>{{$recruitment->reported_datetime}}</td>
                             <td>{{$recruitment->status}}</td>
                             <td>{{$recruitment->done_by}}</td>
                             <td>
