@@ -31,94 +31,17 @@
                     <i class="bi bi-plus-lg"></i> Create News
                 </a>
             </div>
-            @foreach ($newses as $news)
-            <div class="modal fade" id="Modal-{{$news->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">
-                                {{$news->title}}
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="shadow rounded p-5">
-                                <div class="row my-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Headline</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$news->headline}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="col-md-8">
-                                        <label class="form-label">Title</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$news->title}}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label">Category</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$news->category}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="col-md-12">
-                                        <label class="form-label">Detail Report</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$news->detail_report}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Reported datetime</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$news->reported_datetime}}
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Reference</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$news->reference}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Status</label>
-                                        <div class="border border-primary px-3 py-2 rounded text-box-height">
-                                            {{$news->status}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <a href="{{route('news.edit',$news)}}">
-                                <button type="button" class="btn btn-primary">Edit News</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
+            @include('modals.news_modal')
             <div class="block-content block-content-full">
                 <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                     <thead>
                         <tr class="text-center">
                             <th scope="col">Title</th>
                             <th scope="col">Category</th>
-                            <th scope="col">Thumbnail</th>
-                            <th scope="col">News Image</th>
                             <th scope="col">Reported Date-Time</th>
                             <th scope="col">Reference</th>
+                            <th scope="col">Thumbnail</th>
+                            <th scope="col">News Image</th>
                             <th scope="col">Status</th>
                             <th scope="col">Done By</th>
                             <th scope="col">Action</th>
@@ -129,21 +52,23 @@
                         <tr class="text-center">
                             <td>{{$news->title}}</td>
                             <td>{{$news->category}}</td>
+                            <td>{{$news->reported_datetime}}</td>
+                            <td>{{$news->reference}}</td>
                             <td>
                                 @if($news->thumbnail)
                                     <img class="border rounded" src="{{asset('thumbnail/'.$news->thumbnail)}}" height="60">
+                                @else
+                                    <img class="border rounded" src="https://donatepoints.aircanada.com/img/no_image_available.jpg" height="60">
                                 @endif
                             </td>
                             <td>
                                 @if($news->news_image)
                                     <img class="border rounded" src="{{asset('news_image/'.$news->news_image)}}" height="60">
                                 @else
-                                    <img class="border rounded" src="https://image.flaticon.com/icons/png/512/21/21601.png" height="60">
+                                    <img class="border rounded" src="https://donatepoints.aircanada.com/img/no_image_available.jpg" height="60">
                                 @endif
                             </td>
-                            <td>{{$news->reported_datetime}}</td>
                             <td>{{$news->status}}</td>
-                            <td>{{$news->reference}}</td>
                             <td>{{$news->done_by}}</td>
                             <td>
                                 <div class="d-flex">
